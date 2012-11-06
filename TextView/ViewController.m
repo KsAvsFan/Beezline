@@ -20,18 +20,30 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    NSString *jaberwock = @"'Twas brillig, and the slithy toves\nDid gyre and gimble in the wabe;\nAll mimsy were the borogoves,\nAnd the mome raths outgrabe.\n\n\"Beware the Jabberwock, my son!\nThe jaws that bite, the claws that catch!\nBeware the Jubjub bird, and shun\nThe frumious Bandersnatch!\"\n\nHe took his vorpal sword in hand:\nLong time the manxome foe he sought—\nSo rested he by the Tumtum tree,\nAnd stood awhile in thought.\n\nAnd as in uffish thought he stood,\nThe Jabberwock, with eyes of flame,\nCame whiffling through the tulgey wood,\nAnd burbled as it came!\n\nOne, two! One, two! and through and through\nThe vorpal blade went snicker-snack!\nHe left it dead, and with its head\nHe went galumphing back.\n\n\"And hast thou slain the Jabberwock?\nCome to my arms, my beamish boy!\nO frabjous day! Callooh! Callay!\"\nHe chortled in his joy.\n\n'Twas brillig, and the slithy toves\nDid gyre and gimble in the wabe;\nAll mimsy were the borogoves,\nAnd the mome raths outgrabe.";
+    NSString *jaberwock = @"'Twas brillig, and the slithy toves\nDid gyre and gimble in the wabe;\nAll mimsy were the borogoves,\nAnd the mome raths outgrabe.\n\n\"Beware the Jabberwock, my son!\n\n\nThe jaws that bite, the claws that catch!\nBeware the Jubjub bird, and shun\nThe frumious Bandersnatch!\"\n\nHe took his vorpal sword in hand:\nLong time the manxome foe he sought—\nSo rested he by the Tumtum tree,\nAnd stood awhile in thought.\n\nAnd as in uffish thought he stood,\nThe Jabberwock, with eyes of flame,\nCame whiffling through the tulgey wood,\nAnd burbled as it came!\n\nOne, two! One, two! and through and through\nThe vorpal blade went snicker-snack!\nHe left it dead, and with its head\nHe went galumphing back.\n\n\"And hast thou slain the Jabberwock?\nCome to my arms, my beamish boy!\nO frabjous day! Callooh! Callay!\"\nHe chortled in his joy.\n\n'Twas brillig, and the slithy toves\nDid gyre and gimble in the wabe;\nAll mimsy were the borogoves,\nAnd the mome raths outgrabe.";
     
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] init];
 
     int next = 1;
+    int priorLength = 99;
     
     NSArray *lines = [jaberwock componentsSeparatedByString:@"\n"];
     for (NSString *line in lines)
     {
         
         NSMutableAttributedString *attributedLine = [[NSMutableAttributedString alloc] initWithString:line];
-        
+        NSLog(@"%@", line);
+        NSLog(@"line length = %i", [line length]);
+        NSLog(@"priorLength = %i", priorLength);
+        if (([line length] == 0) && (priorLength != 0))
+        {
+            if (next == 1)
+                next = 4;
+            else {
+                next -= 1;
+            }
+            priorLength = 0;
+        }
         switch (next) {
             case 1:
                 
@@ -45,6 +57,7 @@
                 }
                 
                 next = 2;
+                priorLength = 99;
                 break;
             
             case 2:
@@ -60,6 +73,7 @@
                 }
                 
                 next = 3;
+                priorLength = 99;
                 break;
             
             case 3:
@@ -89,6 +103,7 @@
                 }
                 
                 next = 1;
+                priorLength = 99;
                 break;
         }
         
