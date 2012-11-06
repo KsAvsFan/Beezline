@@ -209,7 +209,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0450;
-				ORGANIZATIONNAME = "keith Alperin";
+				ORGANIZATIONNAME = "Jamie Thomason";
 			};
 			buildConfigurationList = A9FFFA461648718800007148 /* Build configuration list for PBXProject "TextView" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -461,6 +461,7 @@
 				A9FFFA8A1648718800007148 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A9FFFA8B1648718800007148 /* Build configuration list for PBXNativeTarget "TextViewTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +470,7 @@
 				A9FFFA8D1648718800007148 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
